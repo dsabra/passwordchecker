@@ -30,26 +30,17 @@ def pwned_api_check(password):
 	print(first5_char,tail)
 	return get_password_leaks_count(response, tail)
 
-#get password, run and return results
-# def main(args):
-# 	for password in args:
-# 		count = pwned_api_check(password)
-# 		if count:
-# 			print(f'{password} was found {count} times. Change your password!')
-# 		else:
-# 			print(f"{password} was not found. Good job.")
-# 		return 'Done!'
-
+#take the password, run and return results
 def main(args):
 	for password in args:
 		count = pwned_api_check(password)
 		if count:
 			print(f'Your password was found {count} times. Change your password!')
 		else:
-			print(f"Your password was not found. Good job.")
+			print(f"Your password was not found. Good to go.")
 		return 'Done!'
 
-#turn user input to ***, run then exit
+#censor user input, then exit after everything runs
 if __name__ == '__main__':
     while True:
         password = stdiomask.getpass('Enter password to check: ')
